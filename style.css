@@ -4,9 +4,24 @@
     box-sizing: border-box;
 }
 
-#rettangolo {
-    width: 300px;
-    height: 600px;
+.contenitore {
+    width: 500px;
+    height: 500px;
     background-color: lightgreen;
-    margin-left: 50px;
+    margin: auto;
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+
+}
+
+#numeri_trovati {
+    font-size: 30px;
+}
+
+#numeri_totali {
+    font-size: 30px;
 }

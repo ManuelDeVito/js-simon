@@ -7,37 +7,46 @@
 
 
 
-
-
-var secondi = 3 * 1000;
+var secondi = 30 * 1000;
 
 $(document).ready(function() {
 
 var numeri_array = [];
 var numeri_array_utente = [];
-var punti = 0;
+var numeri_corretti = [];
+
+
 
     for (var i = 0; i < 5; i++) {
         var numero = getRndInteger(1, 100);
         numeri_array.push(numero);
-        $('#rettangolo').append(' ' + numero)
+        $('#numeri_computer').append(' ' + numero)
     }
 
     setTimeout(function(){
-        $('#rettangolo').hide();
+        $('#numeri_computer').hide();
+    }, secondi - 1000);
+
+
+    setTimeout(function(){
+
         for (var i = 0; i < 5; i++) {
             var numero_utente = parseInt(prompt('Inserisci un numero'));
             numeri_array_utente.push(numero_utente);
-            if (numeri_array_utente.lenght == numeri_array.lenght) {
-                $('#rettangolo').show('');
 
+            // verifico se il numero è dentro l'array numeri_array_utente.
+            if (numeri_array.includes(numero_utente)) {
+
+                // se entra qui vuol dire che il numero inserito dall'utente è presente in quelli random
+                numeri_corretti.push(numero_utente);
             }
         }
+        $('#numeri_trovati').text('I numeri trovati sono = ' + numeri_corretti);
+        $('#numeri_totali').text('Totali = ' + numeri_corretti.length);
     }, secondi);
 
+
 });
-
-
 
 
 function getRndInteger(min, max) {
